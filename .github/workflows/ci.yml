@@ -10,9 +10,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build-java:
+  build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubntu-latest, windows-latest, macOS-latest]
     
     steps:
     - uses: actions/checkout@v2
